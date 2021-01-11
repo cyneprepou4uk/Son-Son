@@ -6439,11 +6439,11 @@ C - - - - - 0x0022E6 00:A2D6: C9 FF     CMP #$FF
 C - - - - - 0x0022E8 00:A2D8: D0 01     BNE bra_A2DB
 C - - - - - 0x0022EA 00:A2DA: 60        RTS
 bra_A2DB:
-C - - - - - 0x0022EB 00:A2DB: A2 00     LDX #$00
-C - - - - - 0x0022ED 00:A2DD: A0 00     LDY #$00
-C - - - - - 0x0022F0 00:A2E0: 85 30     STA ram_0030
+                                        STA ram_0030
 C - - - - - 0x0022F2 00:A2E2: A9 00     LDA #$00
 C - - - - - 0x0022F4 00:A2E4: 85 31     STA ram_0031
+                                        TAX
+                                        TAY
 C - - - - - 0x0022F6 00:A2E6: 06 30     ASL ram_0030
 C - - - - - 0x0022F8 00:A2E8: 26 31     ROL ram_0031
 C - - - - - 0x0022FA 00:A2EA: 18        CLC
