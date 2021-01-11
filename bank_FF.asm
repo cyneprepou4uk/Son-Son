@@ -802,7 +802,7 @@ sub_8535:
 C - - - - - 0x000545 00:8535: 20 F0 AF  JSR sub_AFF0
 C - - - - - 0x000548 00:8538: 20 60 D5  JSR sub_D560
 C - - - - - 0x00054B 00:853B: 20 47 85  JSR sub_8547
-C - - - - - 0x00054E 00:853E: 20 AF 88  JSR sub_88AF_clear_sprites
+C - - - - - 0x00054E 00:853E: 20 AF 88  JSR sub_88AF_clear_all_sprites
 C - - - - - 0x000551 00:8541: 20 DA 88  JSR sub_88DA
 C - - - - - 0x000554 00:8544: 4C F9 AF  JMP loc_AFF9
 
@@ -1491,7 +1491,7 @@ C - - - - - 0x0008BC 00:88AC: 20 63 82  JSR sub_8263
 
 
 
-sub_88AF_clear_sprites:
+sub_88AF_clear_all_sprites:
 C - - - - - 0x0008BF 00:88AF: A9 FF     LDA #$F8
 C - - - - - 0x0008C1 00:88B1: A0 00     LDY #$00
 bra_88B3_loop:
