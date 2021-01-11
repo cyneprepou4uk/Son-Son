@@ -9772,18 +9772,12 @@ C - - - - - 0x0031ED 00:B1DD: BD 33 04  LDA ram_0433,X
 C - - - - - 0x0031F0 00:B1E0: 29 20     AND #$20
 C - - - - - 0x0031F2 00:B1E2: 60        RTS
 
-
-; bzk мусор
-- - - - - - 0x0031F3 00:B1E3: BD 33 04  LDA ram_0433,X
-- - - - - - 0x0031F6 00:B1E6: 29 40     AND #$40
-- - - - - - 0x0031F8 00:B1E8: 60        RTS
-
-
-
 sub_B1E9_check_bit7:
 C - - - - - 0x0031F9 00:B1E9: BD 33 04  LDA ram_0433,X
 C - - - - - 0x0031FC 00:B1EC: 29 80     AND #$80
 C - - - - - 0x0031FE 00:B1EE: 60        RTS
+
+
 
 sub_B1EF_set_bit0:
 C - - - - - 0x0031FF 00:B1EF: BD 33 04  LDA ram_0433,X
