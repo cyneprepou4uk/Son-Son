@@ -9180,7 +9180,10 @@ C - - - - - 0x002ED5 00:AEC5: 20 F2 AE  JSR sub_AEF2
 C - - - - - 0x002ED8 00:AEC8: E6 88     INC ram_0088
 C - - - - - 0x002EDA 00:AECA: 20 64 AF  JSR sub_AF64
 C - - - - - 0x002EDD 00:AECD: E6 86     INC ram_0086
-C - - - - - 0x002EDF 00:AECF: 20 26 AF  JSR sub_AF26
+                                        SEC
+                                        JSR sub_AF3A
+                                        SEC
+                                        JSR sub_AF4F
 C - - - - - 0x002EE2 00:AED2: A5 86     LDA ram_0086
 C - - - - - 0x002EE4 00:AED4: D0 04     BNE bra_AEDA
 C - - - - - 0x002EE6 00:AED6: A5 87     LDA ram_0087
@@ -9217,26 +9220,11 @@ C - - - - - 0x002F16 00:AF06: 60        RTS
 
 
 
-sub_AF26:   ; bzk опт
-C - - - - - 0x002F36 00:AF26: 20 32 AF  JSR sub_AF32
-C - - - - - 0x002F39 00:AF29: 4C 47 AF  JMP loc_AF47
-
-
-
-sub_AF2C:   ; bzk опт
-C - - - - - 0x002F3C 00:AF2C: 20 35 AF  JSR sub_AF35
-C - - - - - 0x002F3F 00:AF2F: 4C 4A AF  JMP loc_AF4A
-
-
-
-sub_AF32:
-C - - - - - 0x002F42 00:AF32: 38        SEC
-C - - - - - 0x002F43 00:AF33: B0 05     BCS bra_AF3A
 sub_AF35:
 C - - - - - 0x002F45 00:AF35: 38        SEC
 C - - - - - 0x002F46 00:AF36: A5 8D     LDA ram_008D
 C - - - - - 0x002F48 00:AF38: E5 8B     SBC ram_008B
-bra_AF3A:
+sub_AF3A:
 C - - - - - 0x002F4A 00:AF3A: A5 85     LDA ram_0085
 C - - - - - 0x002F4C 00:AF3C: E5 83     SBC ram_0083
 C - - - - - 0x002F4E 00:AF3E: 85 83     STA ram_0083
@@ -9247,14 +9235,11 @@ C - - - - - 0x002F56 00:AF46: 60        RTS
 
 
 
-loc_AF47:
-C D 1 - - - 0x002F57 00:AF47: 38        SEC
-C - - - - - 0x002F58 00:AF48: B0 05     BCS bra_AF4F
-loc_AF4A:
+sub_AF4A:
 C D 1 - - - 0x002F5A 00:AF4A: 38        SEC
 C - - - - - 0x002F5B 00:AF4B: A5 8C     LDA ram_008C
 C - - - - - 0x002F5D 00:AF4D: E5 8A     SBC ram_008A
-bra_AF4F:
+sub_AF4F:
 C - - - - - 0x002F5F 00:AF4F: A5 84     LDA ram_0084
 C - - - - - 0x002F61 00:AF51: E5 82     SBC ram_0082
 C - - - - - 0x002F63 00:AF53: 85 82     STA ram_0082
@@ -9339,7 +9324,8 @@ sub_B000:
 loc_B000:
 C D 1 - - - 0x003010 00:B000: 20 E8 AE  JSR sub_AEE8
 C - - - - - 0x003013 00:B003: 20 5C AF  JSR sub_AF5C
-C - - - - - 0x003016 00:B006: 20 2C AF  JSR sub_AF2C
+                                        JSR sub_AF35
+                                        JSR sub_AF4A
 C - - - - - 0x003019 00:B009: 38        SEC
 C - - - - - 0x00301A 00:B00A: A5 82     LDA ram_0082
 C - - - - - 0x00301C 00:B00C: E5 6F     SBC ram_006F
