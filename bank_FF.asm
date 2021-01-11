@@ -11462,7 +11462,13 @@ C - - - - - 0x003E7F 00:BE6F: 29 0F     AND #$0F
 C - - - - - 0x003E81 00:BE71: D0 3E     BNE bra_BEB1
 C - - - - - 0x003E83 00:BE73: 20 B1 CC  JSR sub_CCB1
 C - - - - - 0x003E86 00:BE76: 90 27     BCC bra_BE9F
-C - - - - - 0x003E88 00:BE78: 20 9A BF  JSR sub_BF9A
+                                        LDA ram_05B4,X
+                                        LSR
+                                        LSR
+                                        LSR
+                                        CLC
+                                        ADC #$24
+                                        STA ram_0479,X
 C - - - - - 0x003E8B 00:BE7B: B9 56 04  LDA ram_0456,Y
 C - - - - - 0x003E8E 00:BE7E: DD 56 04  CMP ram_0456,X
 C - - - - - 0x003E91 00:BE81: 90 0C     BCC bra_BE8F
@@ -11601,18 +11607,6 @@ C D 1 - - - 0x003FA0 00:BF90: C6 CE     DEC ram_00CE
 C - - - - - 0x003FA2 00:BF92: A9 00     LDA #$00
 C - - - - - 0x003FA4 00:BF94: 9D 33 04  STA ram_0433,X
 C - - - - - 0x003FA7 00:BF97: 4C 3A BB  JMP loc_BB3A
-
-
-
-sub_BF9A:   ; bzk опт
-C - - - - - 0x003FAA 00:BF9A: BD B4 05  LDA ram_05B4,X
-C - - - - - 0x003FAD 00:BF9D: 4A        LSR
-C - - - - - 0x003FAE 00:BF9E: 4A        LSR
-C - - - - - 0x003FAF 00:BF9F: 4A        LSR
-C - - - - - 0x003FB0 00:BFA0: 18        CLC
-C - - - - - 0x003FB1 00:BFA1: 69 24     ADC #$24
-C - - - - - 0x003FB3 00:BFA3: 9D 79 04  STA ram_0479,X
-C - - - - - 0x003FB6 00:BFA6: 60        RTS
 
 
 
