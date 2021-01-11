@@ -17501,27 +17501,27 @@ C - - - - - 0x00626A 01:E25A: A5 79     LDA ram_0079
 C - - - - - 0x00626C 01:E25C: 29 10     AND #$10
 C - - - - - 0x00626E 01:E25E: D0 05     BNE bra_E265
 C - - - - - 0x006270 01:E260: A9 FC     LDA #$FC
-C - - - - - 0x006272 01:E262: 4C 83 E2  JMP loc_E283    ; bzk опт
+                                        BNE bra_E283
 bra_E265:
 C - - - - - 0x006275 01:E265: A9 CF     LDA #$CF
-C - - - - - 0x006277 01:E267: 4C 7B E2  JMP loc_E27B    ; bzk опт
+                                        BNE bra_E27B
 bra_E26A:
 C - - - - - 0x00627A 01:E26A: A5 79     LDA ram_0079
 C - - - - - 0x00627C 01:E26C: 29 10     AND #$10
 C - - - - - 0x00627E 01:E26E: D0 05     BNE bra_E275
 C - - - - - 0x006280 01:E270: A9 F3     LDA #$F3
-C - - - - - 0x006282 01:E272: 4C 7F E2  JMP loc_E27F    ; bzk опт
+                                        BNE bra_E27F
 bra_E275:
 C - - - - - 0x006285 01:E275: A9 3F     LDA #$3F
 C - - - - - 0x006287 01:E277: 06 5B     ASL ram_005B
 C - - - - - 0x006289 01:E279: 06 5B     ASL ram_005B
-loc_E27B:
+bra_E27B:
 C D 3 - - - 0x00628B 01:E27B: 06 5B     ASL ram_005B
 C - - - - - 0x00628D 01:E27D: 06 5B     ASL ram_005B
-loc_E27F:
+bra_E27F:
 C D 3 - - - 0x00628F 01:E27F: 06 5B     ASL ram_005B
 C - - - - - 0x006291 01:E281: 06 5B     ASL ram_005B
-loc_E283:
+bra_E283:
 C D 3 - - - 0x006293 01:E283: 25 5A     AND ram_005A
 C - - - - - 0x006295 01:E285: 05 5B     ORA ram_005B
 C - - - - - 0x006297 01:E287: 91 32     STA (ram_0032),Y
