@@ -10996,8 +10996,7 @@ bra_BB12_loop:
 C - - - - - 0x003B22 00:BB12: BD 33 04  LDA ram_0433,X
 C - - - - - 0x003B25 00:BB15: F0 23     BEQ bra_BB3A
 C - - - - - 0x003B27 00:BB17: BD FA 05  LDA ram_05FA,X
-C - - - - - 0x003B2A 00:BB1A: C9 00     CMP #$00
-C - - - - - 0x003B2C 00:BB1C: F0 09     BEQ bra_BB27    ; bzk опт
+C - - - - - 0x003B2C 00:BB1C: F0 09     BEQ bra_BB27
 C - - - - - 0x003B2E 00:BB1E: A5 92     LDA ram_0092
 C - - - - - 0x003B30 00:BB20: 29 01     AND #$01
 C - - - - - 0x003B32 00:BB22: D0 16     BNE bra_BB3A
