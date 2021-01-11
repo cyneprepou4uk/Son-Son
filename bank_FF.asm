@@ -1492,11 +1492,14 @@ C - - - - - 0x0008BC 00:88AC: 20 63 82  JSR sub_8263
 
 
 sub_88AF_clear_sprites:
-C - - - - - 0x0008BF 00:88AF: A9 FF     LDA #$FF
+C - - - - - 0x0008BF 00:88AF: A9 FF     LDA #$F8
 C - - - - - 0x0008C1 00:88B1: A0 00     LDY #$00
 bra_88B3_loop:
 C - - - - - 0x0008C3 00:88B3: 99 00 02  STA ram_0200,Y
-C - - - - - 0x0008C6 00:88B6: 88        DEY
+                                        INY
+                                        INY
+                                        INY
+                                        INY
 C - - - - - 0x0008C7 00:88B7: D0 FA     BNE bra_88B3_loop
 C - - - - - 0x0008C9 00:88B9: 60        RTS
 
