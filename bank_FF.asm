@@ -11054,28 +11054,6 @@ C - - - - - 0x003B07 00:BAF7: 20 A0 82  JSR sub_82A0
 C - - - - - 0x003B0A 00:BAFA: 4C F1 BA  JMP loc_BAF1_loop
 
 
-; bzk мусор
-- - - - - - 0x003B0D 00:BAFD: FF        .byte $FF   ; 
-- - - - - - 0x003B0E 00:BAFE: FF        .byte $FF   ; 
-- - - - - - 0x003B0F 00:BAFF: FF        .byte $FF   ; 
-- - - - - - 0x003B10 00:BB00: FF        .byte $FF   ; 
-- - - - - - 0x003B11 00:BB01: FF        .byte $FF   ; 
-- - - - - - 0x003B12 00:BB02: FF        .byte $FF   ; 
-- - - - - - 0x003B13 00:BB03: FF        .byte $FF   ; 
-- - - - - - 0x003B14 00:BB04: FF        .byte $FF   ; 
-- - - - - - 0x003B15 00:BB05: FF        .byte $FF   ; 
-- - - - - - 0x003B16 00:BB06: FF        .byte $FF   ; 
-- - - - - - 0x003B17 00:BB07: FF        .byte $FF   ; 
-- - - - - - 0x003B18 00:BB08: FF        .byte $FF   ; 
-- - - - - - 0x003B19 00:BB09: FF        .byte $FF   ; 
-- - - - - - 0x003B1A 00:BB0A: FF        .byte $FF   ; 
-- - - - - - 0x003B1B 00:BB0B: FF        .byte $FF   ; 
-- - - - - - 0x003B1C 00:BB0C: FF        .byte $FF   ; 
-- - - - - - 0x003B1D 00:BB0D: FF        .byte $FF   ; 
-- - - - - - 0x003B1E 00:BB0E: FF        .byte $FF   ; 
-- - - - - - 0x003B1F 00:BB0F: FF        .byte $FF   ; 
-
-
 
 loc_BB10:
 ofs_BB10_06:
