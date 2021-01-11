@@ -6400,7 +6400,7 @@ C - - - - - 0x002298 00:A288: A9 00     LDA #< ram_0200
 C - - - - - 0x00229A 00:A28A: 85 37     STA ram_0037
 C - - - - - 0x00229C 00:A28C: A9 02     LDA #> ram_0200
 C - - - - - 0x00229E 00:A28E: 85 38     STA ram_0038
-C - - - - - 0x0022A0 00:A290: 20 D2 A2  JSR sub_A2D2
+C - - - - - 0x0022A0 00:A290: 20 D2 A2  JSR sub_A2D2_draw_sprites
 C D 1 - - - 0x0022AD 00:A29D: A5 33     LDA ram_0038
 C - - - - - 0x0022AF 00:A29F: C9 03     CMP #$03
 C - - - - - 0x0022B1 00:A2A1: B0 0A     BCS bra_A2AD
@@ -6430,14 +6430,14 @@ C - - - - - 0x0022E1 00:A2D1: 60        RTS
 
 
 
-sub_A2D2:
-loc_A2D2:
+sub_A2D2_draw_sprites:
+loc_A2D2_next_object:
 C D 1 - - - 0x0022E2 00:A2D2: A0 01     LDY #$01
 C - - - - - 0x0022E4 00:A2D4: B1 35     LDA (ram_0035),Y
 C - - - - - 0x0022E6 00:A2D6: C9 FF     CMP #$FF
-C - - - - - 0x0022E8 00:A2D8: D0 01     BNE bra_A2DB
+C - - - - - 0x0022E8 00:A2D8: D0 01     BNE bra_A2DB_object_does_exist
 C - - - - - 0x0022EA 00:A2DA: 60        RTS
-bra_A2DB:
+bra_A2DB_object_does_exist:
                                         STA ram_0030
 C - - - - - 0x0022F2 00:A2E2: A9 00     LDA #$00
 C - - - - - 0x0022F4 00:A2E4: 85 31     STA ram_0031
@@ -6522,16 +6522,16 @@ C - - - - - 0x002383 00:A373: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x002386 00:A376: 20 B8 A3  JSR sub_A3B8_increase_0039_index
 C - - - - - 0x002389 00:A379: 18        CLC
 C - - - - - 0x00238A 00:A37A: A5 37     LDA ram_0037
-C - - - - - 0x00238C 00:A37C: 69 04     ADC #$04
+C - - - - - 0x00238C 00:A37C: 69 04     ADC #$04    ; следующий адрес спрайта
 C - - - - - 0x00238E 00:A37E: 85 37     STA ram_0037
 C - - - - - 0x002390 00:A380: A5 38     LDA ram_0038
 C - - - - - 0x002392 00:A382: 69 00     ADC #$00
 C - - - - - 0x002394 00:A384: 85 38     STA ram_0038
 C - - - - - 0x002396 00:A386: C9 03     CMP #$03
-C - - - - - 0x002398 00:A388: 90 01     BCC bra_A38B
+C - - - - - 0x002398 00:A388: 90 01     BCC bra_A38B    ; место в памяти спрайтов еще есть
 C - - - - - 0x00239A 00:A38A: 60        RTS
 bra_A38B:
-loc_A38B:
+loc_A38B_loop:
 C D 1 - - - 0x00239B 00:A38B: C6 2F     DEC ram_002F
 C - - - - - 0x00239D 00:A38D: D0 AD     BNE bra_A33C_loop
 C - - - - - 0x00239F 00:A38F: 18        CLC
@@ -6541,14 +6541,14 @@ C - - - - - 0x0023A4 00:A394: 85 35     STA ram_0035
 C - - - - - 0x0023A6 00:A396: A5 36     LDA ram_0036
 C - - - - - 0x0023A8 00:A398: 69 00     ADC #$00
 C - - - - - 0x0023AA 00:A39A: 85 36     STA ram_0036
-C - - - - - 0x0023AC 00:A39C: 4C D2 A2  JMP loc_A2D2
+C - - - - - 0x0023AC 00:A39C: 4C D2 A2  JMP loc_A2D2_next_object
 bra_A39F:
 C - - - - - 0x0023AF 00:A39F: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x0023B2 00:A3A2: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x0023B5 00:A3A5: 20 B8 A3  JSR sub_A3B8_increase_0039_index
 C - - - - - 0x0023B8 00:A3A8: 20 BF A3  JSR sub_A3BF_increase_003B_index
 C - - - - - 0x0023BB 00:A3AB: 20 BF A3  JSR sub_A3BF_increase_003B_index
-C - - - - - 0x0023BE 00:A3AE: 4C 8B A3  JMP loc_A38B
+C - - - - - 0x0023BE 00:A3AE: 4C 8B A3  JMP loc_A38B_loop
 
 
 
