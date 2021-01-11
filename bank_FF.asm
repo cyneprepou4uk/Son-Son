@@ -13568,7 +13568,9 @@ bra_CECF:
 C - - - - - 0x004EDF 01:CECF: 20 2E B2  JSR sub_B22E_set_bit7
 C - - - - - 0x004EE2 01:CED2: 20 70 CA  JSR sub_CA70
 C - - - - - 0x004EE5 01:CED5: B0 E2     BCS bra_CEB9
-C - - - - - 0x004EE7 01:CED7: 20 03 D4  JSR sub_D403
+                                        LDA #$21
+                                        LDY #$14
+                                        JSR sub_D40C
 C - - - - - 0x004EEA 01:CEDA: 90 03     BCC bra_CEDF
 C - - - - - 0x004EEC 01:CEDC: 20 A3 B2  JSR sub_B2A3_set_bit0
 bra_CEDF:
@@ -14273,16 +14275,9 @@ bra_D3FB:
 
 
 
-sub_D403:   ; bzk опт
-C - - - - - 0x005413 01:D403: A9 21     LDA #$21
-C - - - - - 0x005415 01:D405: A0 14     LDY #$14
-C - - - - - 0x005417 01:D407: 4C 0C D4  JMP loc_D40C
-
-
-
 sub_D40A:
 C - - - - - 0x00541A 01:D40A: A0 0A     LDY #$0A
-loc_D40C:
+sub_D40C:
 C D 2 - - - 0x00541C 01:D40C: 85 2E     STA ram_002E
 C - - - - - 0x00541E 01:D40E: 84 2F     STY ram_002F
 C - - - - - 0x005420 01:D410: A0 01     LDY #$01
