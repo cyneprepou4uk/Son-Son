@@ -9323,31 +9323,6 @@ C - - - - - 0x002F80 00:AF70: 85 86     STA ram_0086
 C - - - - - 0x002F82 00:AF72: 60        RTS
 
 
-; bzk мусор
-- - - - - - 0x002F83 00:AF73: A5 82     LDA ram_0082
-- - - - - - 0x002F85 00:AF75: 9D 28 05  STA ram_0528,X
-- - - - - - 0x002F88 00:AF78: A5 86     LDA ram_0086
-- - - - - - 0x002F8A 00:AF7A: 9D E2 04  STA ram_04E2,X
-- - - - - - 0x002F8D 00:AF7D: A5 83     LDA ram_0083
-- - - - - - 0x002F8F 00:AF7F: 9D 4B 05  STA ram_054B,X
-- - - - - - 0x002F92 00:AF82: A5 87     LDA ram_0087
-- - - - - - 0x002F94 00:AF84: 9D 05 05  STA ram_0505,X
-- - - - - - 0x002F97 00:AF87: 60        RTS
-- - - - - - 0x002F98 00:AF88: BD 6E 05  LDA ram_056E,X
-- - - - - - 0x002F9B 00:AF8B: 99 6E 05  STA ram_056E,Y
-- - - - - - 0x002F9E 00:AF8E: BD 28 05  LDA ram_0528,X
-- - - - - - 0x002FA1 00:AF91: 99 28 05  STA ram_0528,Y
-- - - - - - 0x002FA4 00:AF94: BD E2 04  LDA ram_04E2,X
-- - - - - - 0x002FA7 00:AF97: 99 E2 04  STA ram_04E2,Y
-- - - - - - 0x002FAA 00:AF9A: BD 91 05  LDA ram_0591,X
-- - - - - - 0x002FAD 00:AF9D: 99 91 05  STA ram_0591,Y
-- - - - - - 0x002FB0 00:AFA0: BD 4B 05  LDA ram_054B,X
-- - - - - - 0x002FB3 00:AFA3: 99 4B 05  STA ram_054B,Y
-- - - - - - 0x002FB6 00:AFA6: BD 05 05  LDA ram_0505,X
-- - - - - - 0x002FB9 00:AFA9: 99 05 05  STA ram_0505,Y
-- - - - - - 0x002FBC 00:AFAC: 60        RTS
-
-
 
 sub_AFB6:
 C - - - - - 0x002FC6 00:AFB6: A5 57     LDA ram_0057
