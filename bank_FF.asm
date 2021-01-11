@@ -14827,8 +14827,7 @@ C - - - - - 0x0056F3 01:D6E3: 0A        ASL
 C - - - - - 0x0056F4 01:D6E4: A8        TAY
 C - - - - - 0x0056F5 01:D6E5: B9 AB D9  LDA tbl_D9AB,Y
 C - - - - - 0x0056F8 01:D6E8: 85 3E     STA ram_003E
-C - - - - - 0x0056FA 01:D6EA: C8        INY     ; bzk опт
-C - - - - - 0x0056FB 01:D6EB: B9 AB D9  LDA tbl_D9AB,Y
+C - - - - - 0x0056FB 01:D6EB: B9 AB D9  LDA tbl_D9AB + 1,Y
 C - - - - - 0x0056FE 01:D6EE: 85 3F     STA ram_003F
 C - - - - - 0x005700 01:D6F0: A4 FD     LDY ram_00FD
 C - - - - - 0x005702 01:D6F2: A5 3E     LDA ram_003E
