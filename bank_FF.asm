@@ -14574,9 +14574,9 @@ C - - - - - 0x005578 01:D568: A9 0F     LDA #< ram_070F
 C - - - - - 0x00557A 01:D56A: 85 F2     STA ram_00F2
 C - - - - - 0x00557C 01:D56C: A9 07     LDA #> ram_070F
 C - - - - - 0x00557E 01:D56E: 85 F3     STA ram_00F3
-C - - - - - 0x005580 01:D570: AD A9 D9  LDA tbl_D9A9
+C - - - - - 0x005580 01:D570: AD A9 D9  LDA #< ram_0757
 C - - - - - 0x005583 01:D573: 85 F4     STA ram_00F4
-C - - - - - 0x005585 01:D575: AD AA D9  LDA tbl_D9AA
+C - - - - - 0x005585 01:D575: AD AA D9  LDA #> ram_0757
 C - - - - - 0x005588 01:D578: 85 F5     STA ram_00F5
 C - - - - - 0x00558A 01:D57A: A9 00     LDA #< $4000
 C - - - - - 0x00558C 01:D57C: 85 F6     STA ram_00F6
@@ -15322,14 +15322,6 @@ tbl_D992:
 - D 2 - - - 0x0059B6 01:D9A6: 3B        .byte $3B   ; 
 - D 2 - - - 0x0059B7 01:D9A7: 02        .byte $02   ; 
 - D 2 - - - 0x0059B8 01:D9A8: 1B        .byte $1B   ; 
-
-
-; bzk опт
-tbl_D9A9:
-- D 2 - - - 0x0059B9 01:D9A9: 57        .byte < ram_0757
-
-tbl_D9AA:
-- D 2 - - - 0x0059BA 01:D9AA: 07        .byte > ram_0757
 
 
 
