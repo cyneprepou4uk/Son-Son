@@ -24811,14 +24811,6 @@ C - - - - - 0x008002 01:FFF2: 90 F5     BCC bra_FFE9_loop
 C - - - - - 0x008004 01:FFF4: 60        RTS
 
 
-; bzk мусор
-- - - - - - 0x008005 01:FFF5: FF        .byte $FF   ; 
-- - - - - - 0x008006 01:FFF6: FF        .byte $FF   ; 
-- - - - - - 0x008007 01:FFF7: FF        .byte $FF   ; 
-- - - - - - 0x008008 01:FFF8: FF        .byte $FF   ; 
-- - - - - - 0x008009 01:FFF9: FF        .byte $FF   ; 
-
-
 
 .segment "VECTORS"
 - D 3 - - - 0x00800A 01:FFFA: 8A 80     .word vec_808A_NMI
