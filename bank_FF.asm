@@ -8679,24 +8679,6 @@ tbl_ABA2:
 - D 1 - I - 0x002BC8 00:ABB8: 2B AC     .word _off004_AC2B_0B
 - D 1 - I - 0x002BCA 00:ABBA: 35 AC     .word _off004_AC35_0C
 - D 1 - I - 0x002BCC 00:ABBC: 3F AC     .word _off004_AC3F_0D
-- - - - - - 0x002BCE 00:ABBE: 49 AC     .word _off004_AC49_0E
-- - - - - - 0x002BD0 00:ABC0: 49 AC     .word _off004_AC49_0F
-- - - - - - 0x002BD2 00:ABC2: 49 AC     .word _off004_AC49_10
-- - - - - - 0x002BD4 00:ABC4: 49 AC     .word _off004_AC49_11
-- - - - - - 0x002BD6 00:ABC6: 49 AC     .word _off004_AC49_12
-- - - - - - 0x002BD8 00:ABC8: 49 AC     .word _off004_AC49_13
-- - - - - - 0x002BDA 00:ABCA: 49 AC     .word _off004_AC49_14
-- - - - - - 0x002BDC 00:ABCC: 49 AC     .word _off004_AC49_15
-- - - - - - 0x002BDE 00:ABCE: 49 AC     .word _off004_AC49_16
-- - - - - - 0x002BE0 00:ABD0: 49 AC     .word _off004_AC49_17
-- - - - - - 0x002BE2 00:ABD2: 49 AC     .word _off004_AC49_18
-- - - - - - 0x002BE4 00:ABD4: 49 AC     .word _off004_AC49_19
-- - - - - - 0x002BE6 00:ABD6: 49 AC     .word _off004_AC49_1A
-- - - - - - 0x002BE8 00:ABD8: 49 AC     .word _off004_AC49_1B
-- - - - - - 0x002BEA 00:ABDA: 49 AC     .word _off004_AC49_1C
-- - - - - - 0x002BEC 00:ABDC: 49 AC     .word _off004_AC49_1D
-- - - - - - 0x002BEE 00:ABDE: 49 AC     .word _off004_AC49_1E
-- - - - - - 0x002BF0 00:ABE0: 49 AC     .word _off004_AC49_1F
 
 
 
@@ -8858,25 +8840,7 @@ _off004_AC3F_0D:
 - D 1 - I - 0x002C58 00:AC48: 01        .byte $01   ; 
 
 
-; bzk
-_off004_AC49_0E:
-_off004_AC49_0F:
-_off004_AC49_10:
-_off004_AC49_11:
-_off004_AC49_12:
-_off004_AC49_13:
-_off004_AC49_14:
-_off004_AC49_15:
-_off004_AC49_16:
-_off004_AC49_17:
-_off004_AC49_18:
-_off004_AC49_19:
-_off004_AC49_1A:
-_off004_AC49_1B:
-_off004_AC49_1C:
-_off004_AC49_1D:
-_off004_AC49_1E:
-_off004_AC49_1F:
+
 loc_AC49:   ; bzk опт
 C D 1 - - - 0x002C59 00:AC49: A9 10     LDA #$10
 C - - - - - 0x002C5B 00:AC4B: 4C 50 AC  JMP loc_AC50
