@@ -11846,7 +11846,8 @@ C - - - - - 0x0041AF 01:C19F: D0 2A     BNE bra_C1CB
 C - - - - - 0x0041B1 01:C1A1: 20 1C B2  JSR sub_B21C_set_bit5
 C - - - - - 0x0041B4 01:C1A4: A9 FF     LDA #$FF
 C - - - - - 0x0041B6 01:C1A6: 9D D7 05  STA ram_05D7,X
-C - - - - - 0x0041B9 01:C1A9: 20 B6 D0  JSR sub_D0B6
+                                        LDA #$02
+                                        JSR sub_D0BD
 C - - - - - 0x0041BC 01:C1AC: 20 05 C6  JSR sub_C605
 C - - - - - 0x0041BF 01:C1AF: A9 10     LDA #$10
 C - - - - - 0x0041C1 01:C1B1: 20 ED D5  JSR sub_D5ED
@@ -13830,15 +13831,9 @@ C - - - - - 0x0050C3 01:D0B3: 4C 4B 91  JMP loc_914B
 
 
 
-sub_D0B6:   ; bzk опт
-C - - - - - 0x0050C6 01:D0B6: A9 02     LDA #$02
-C - - - - - 0x0050C8 01:D0B8: 4C BD D0  JMP loc_D0BD
-
-
-
 sub_D0BB:
 C - - - - - 0x0050CB 01:D0BB: A9 01     LDA #$01
-loc_D0BD:
+sub_D0BD:
 C D 2 - - - 0x0050CD 01:D0BD: 85 30     STA ram_0030
 C - - - - - 0x0050CF 01:D0BF: BC 40 06  LDY ram_0640,X
 sub_D0C2:
