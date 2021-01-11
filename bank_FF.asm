@@ -15181,19 +15181,18 @@ ofs_D8E9_F4:
 sub_D8F9:
 C - - - - - 0x005909 01:D8F9: A5 FD     LDA ram_00FD
 C - - - - - 0x00590B 01:D8FB: 18        CLC
-C - - - - - 0x00590C 01:D8FC: 69 05     ADC #$05
+                                        ADC #$06
 C - - - - - 0x00590E 01:D8FE: A8        TAY
 C - - - - - 0x00590F 01:D8FF: B1 F2     LDA (ram_00F2),Y
-C - - - - - 0x005911 01:D901: 85 FE     STA ram_00FE
-C - - - - - 0x005913 01:D903: C8        INY
+C - - - - - 0x005911 01:D901: 85 FE     STA ram_00FF
+                                        PHA
+                                        DEY
 C - - - - - 0x005914 01:D904: B1 F2     LDA (ram_00F2),Y
-C - - - - - 0x005916 01:D906: 85 FF     STA ram_00FF
-C - - - - - 0x00591D 01:D90D: A5 FE     LDA ram_00FE
-C - - - - - 0x00591F 01:D90F: 88        DEY
+C - - - - - 0x005916 01:D906: 85 FF     STA ram_00FE
 C - - - - - 0x005920 01:D910: 18        CLC
 C - - - - - 0x005921 01:D911: 69 01     ADC #$01
 C - - - - - 0x005923 01:D913: 91 F2     STA (ram_00F2),Y
-C - - - - - 0x005925 01:D915: A5 FF     LDA ram_00FF
+                                        PLA
 C - - - - - 0x005927 01:D917: 69 00     ADC #$00
 C - - - - - 0x005929 01:D919: C8        INY
 C - - - - - 0x00592A 01:D91A: 91 F2     STA (ram_00F2),Y
