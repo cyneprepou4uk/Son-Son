@@ -11302,7 +11302,8 @@ C - - - - - 0x003D38 00:BD28: 20 C5 B1  JSR sub_B1C5_check_bit1
 C - - - - - 0x003D3B 00:BD2B: D0 5C     BNE bra_BD89
 C - - - - - 0x003D3D 00:BD2D: 20 BF B1  JSR sub_B1BF_check_bit0
 C - - - - - 0x003D40 00:BD30: F0 0B     BEQ bra_BD3D
-C - - - - - 0x003D42 00:BD32: 20 8C D0  JSR sub_D08C
+                                        LDA #< ram_0003
+C - - - - - 0x003D42 00:BD32: 20 8C D0  JSR sub_D085
 C - - - - - 0x003D45 00:BD35: A9 00     LDA #$00
 C - - - - - 0x003D47 00:BD37: 9D D7 05  STA ram_05D7,X
 C - - - - - 0x003D4A 00:BD3A: 4C 89 BD  JMP loc_BD89
@@ -13795,16 +13796,9 @@ tbl_D07E:
 
 
 sub_D084:
+                                        LDA #< ram_0005
+sub_D085:
 C - - - - - 0x005094 01:D084: BC 40 06  LDY ram_0640,X
-C - - - - - 0x005097 01:D087: A9 05     LDA #< ram_0005
-C - - - - - 0x005099 01:D089: 4C 91 D0  JMP loc_D091    ; bzk опт
-
-
-
-sub_D08C:
-C - - - - - 0x00509C 01:D08C: BC 40 06  LDY ram_0640,X
-C - - - - - 0x00509F 01:D08F: A9 03     LDA #< ram_0003
-loc_D091:
 C D 2 - - - 0x0050A1 01:D091: 85 32     STA ram_0032
 C - - - - - 0x0050A3 01:D093: A9 00     LDA #$00
 C - - - - - 0x0050A5 01:D095: 85 33     STA ram_0033
