@@ -14658,13 +14658,6 @@ tbl_D554:
 - D 2 - - - 0x00556B 01:D55B: 2F        .byte $2F   ; 
 
 
-; bzk мусор
-- - - - - - 0x00556C 01:D55C: FF        .byte $FF   ; 
-- - - - - - 0x00556D 01:D55D: FF        .byte $FF   ; 
-- - - - - - 0x00556E 01:D55E: FF        .byte $FF   ; 
-- - - - - - 0x00556F 01:D55F: FF        .byte $FF   ; 
-
-
 
 sub_D560:
 C - - - - - 0x005570 01:D560: A9 06     LDA #< ram_0706
