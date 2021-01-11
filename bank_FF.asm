@@ -9279,7 +9279,7 @@ C - - - - - 0x002FD4 00:AFC4: 85 33     STA ram_0033
 C - - - - - 0x002FD6 00:AFC6: 85 32     STA ram_0032
 C - - - - - 0x002FD8 00:AFC8: 85 57     STA ram_0057
 C - - - - - 0x002FDA 00:AFCA: 85 2E     STA ram_002E
-bra_AFCC:
+bra_AFCC_loop:
 C - - - - - 0x002FDC 00:AFCC: 46 31     LSR ram_0031
 C - - - - - 0x002FDE 00:AFCE: 66 30     ROR ram_0030
 C - - - - - 0x002FE0 00:AFD0: 66 2F     ROR ram_002F
@@ -9298,7 +9298,7 @@ C - - - - - 0x002FF7 00:AFE7: 65 57     ADC ram_0057
 C - - - - - 0x002FF9 00:AFE9: 85 57     STA ram_0057
 bra_AFEB:
 C - - - - - 0x002FFB 00:AFEB: A5 61     LDA ram_0061
-C - - - - - 0x002FFD 00:AFED: D0 DD     BNE bra_AFCC
+C - - - - - 0x002FFD 00:AFED: D0 DD     BNE bra_AFCC_loop
 C - - - - - 0x002FFF 00:AFEF: 60        RTS
 
 
