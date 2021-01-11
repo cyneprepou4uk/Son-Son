@@ -12784,7 +12784,12 @@ bra_C90B:
 loc_C90B:
 C D 2 - - - 0x00491B 01:C90B: 20 C5 B1  JSR sub_B1C5_check_bit1
 C - - - - - 0x00491E 01:C90E: D0 38     BNE bra_C948
-C - - - - - 0x004920 01:C910: 20 1A CB  JSR sub_CB1A
+                                        LDA ram_0073
+                                        AND #$F0
+                                        STA ram_054B,X
+                                        LDA ram_0074
+                                        STA ram_0505,X
+                                        INC ram_0505,X
 C - - - - - 0x004923 01:C913: 20 1C D3  JSR sub_D31C
 C - - - - - 0x004926 01:C916: 20 F8 B1  JSR sub_B1F8_set_bit1
 C - - - - - 0x004929 01:C919: A9 0D     LDA #$0D
@@ -13072,17 +13077,6 @@ C - - - - - 0x004B21 01:CB11: 90 D9     BCC bra_CAEC
 C - - - - - 0x004B23 01:CB13: A9 00     LDA #$00
 C - - - - - 0x004B25 01:CB15: 85 E9     STA ram_00E9
 C - - - - - 0x004B27 01:CB17: 4C EC CA  JMP loc_CAEC
-
-
-
-sub_CB1A:   ; bzk опт
-C - - - - - 0x004B2A 01:CB1A: A5 73     LDA ram_0073
-C - - - - - 0x004B2C 01:CB1C: 29 F0     AND #$F0
-C - - - - - 0x004B2E 01:CB1E: 9D 4B 05  STA ram_054B,X
-C - - - - - 0x004B31 01:CB21: A5 74     LDA ram_0074
-C - - - - - 0x004B33 01:CB23: 9D 05 05  STA ram_0505,X
-C - - - - - 0x004B36 01:CB26: FE 05 05  INC ram_0505,X
-C - - - - - 0x004B39 01:CB29: 60        RTS
 
 
 
