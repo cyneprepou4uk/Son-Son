@@ -6441,7 +6441,6 @@ C - - - - - 0x0022EA 00:A2DA: 60        RTS
 bra_A2DB:
 C - - - - - 0x0022EB 00:A2DB: A2 00     LDX #$00
 C - - - - - 0x0022ED 00:A2DD: A0 00     LDY #$00
-C - - - - - 0x0022EF 00:A2DF: 18        CLC
 C - - - - - 0x0022F0 00:A2E0: 85 30     STA ram_0030
 C - - - - - 0x0022F2 00:A2E2: A9 00     LDA #$00
 C - - - - - 0x0022F4 00:A2E4: 85 31     STA ram_0031
