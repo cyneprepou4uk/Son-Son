@@ -11685,7 +11685,8 @@ C - - - - - 0x00405A 01:C04A: 90 1A     BCC bra_C066
 C - - - - - 0x00405C 01:C04C: BD 56 04  LDA ram_0456,X
 C - - - - - 0x00405F 01:C04F: C9 C8     CMP #$C8
 C - - - - - 0x004061 01:C051: B0 26     BCS bra_C079
-C - - - - - 0x004063 01:C053: 20 D5 C1  JSR sub_C1D5
+                                        LDA #$34
+                                        STA ram_0479,X
 C - - - - - 0x004066 01:C056: A9 08     LDA #$08
 C - - - - - 0x004068 01:C058: 9D B4 05  STA ram_05B4,X
 C - - - - - 0x00406B 01:C05B: A9 FF     LDA #$FF
@@ -11693,7 +11694,8 @@ C - - - - - 0x00406D 01:C05D: 9D 1D 06  STA ram_061D,X
 C - - - - - 0x004070 01:C060: 9D D7 05  STA ram_05D7,X
 C - - - - - 0x004073 01:C063: 4C A0 C0  JMP loc_C0A0
 bra_C066:
-C - - - - - 0x004076 01:C066: 20 D5 C1  JSR sub_C1D5
+                                        LDA #$34
+                                        STA ram_0479,X
 C - - - - - 0x004079 01:C069: A9 00     LDA #$00
 C - - - - - 0x00407B 01:C06B: 9D B4 05  STA ram_05B4,X
 C - - - - - 0x00407E 01:C06E: A9 FF     LDA #$FF
@@ -11864,13 +11866,6 @@ C D 2 - - - 0x0041DB 01:C1CB: C6 D0     DEC ram_00D0
 C - - - - - 0x0041DD 01:C1CD: A9 00     LDA #$00
 C - - - - - 0x0041DF 01:C1CF: 9D 33 04  STA ram_0433,X
 C - - - - - 0x0041E2 01:C1D2: 4C 3A BB  JMP loc_BB3A
-
-
-
-sub_C1D5:   ; bzk опт
-C - - - - - 0x0041E5 01:C1D5: A9 34     LDA #$34
-C - - - - - 0x0041E7 01:C1D7: 9D 79 04  STA ram_0479,X
-C - - - - - 0x0041EA 01:C1DA: 60        RTS
 
 
 
