@@ -6570,14 +6570,6 @@ C - - - - - 0x0023BB 00:A3AB: 20 BF A3  JSR sub_A3BF_increase_003B_index
 C - - - - - 0x0023BE 00:A3AE: 4C 8B A3  JMP loc_A38B
 
 
-; bzk мусор
-- - - - - - 0x0023C1 00:A3B1: E6 35     INC ram_0035
-- - - - - - 0x0023C3 00:A3B3: D0 02     BNE bra_A3B7_RTS
-- - - - - - 0x0023C5 00:A3B5: E6 36     INC ram_0036
-bra_A3B7_RTS:
-- - - - - - 0x0023C7 00:A3B7: 60        RTS
-
-
 
 sub_A3B8_increase_0039_index:
 C - - - - - 0x0023C8 00:A3B8: E6 39     INC ram_0039
