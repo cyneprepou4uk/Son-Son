@@ -9258,22 +9258,8 @@ C - - - - - 0x002F14 00:AF04: 85 88     STA ram_0088
 C - - - - - 0x002F16 00:AF06: 60        RTS
 
 
-; bzk мусор
-sub_AF11:
-- - - - - - 0x002F21 00:AF11: B9 4B 05  LDA ram_054B,Y
-- - - - - - 0x002F24 00:AF14: 85 83     STA ram_0083
-- - - - - - 0x002F26 00:AF16: B9 05 05  LDA ram_0505,Y
-- - - - - - 0x002F29 00:AF19: 85 87     STA ram_0087
-- - - - - - 0x002F2B 00:AF1B: B9 28 05  LDA ram_0528,Y
-- - - - - - 0x002F2E 00:AF1E: 85 82     STA ram_0082
-- - - - - - 0x002F30 00:AF20: B9 E2 04  LDA ram_04E2,Y
-- - - - - - 0x002F33 00:AF23: 85 86     STA ram_0086
-- - - - - - 0x002F35 00:AF25: 60        RTS
 
-
-
-sub_AF26:
-loc_AF26:   ; bzk опт
+sub_AF26:   ; bzk опт
 C - - - - - 0x002F36 00:AF26: 20 32 AF  JSR sub_AF32
 C - - - - - 0x002F39 00:AF29: 4C 47 AF  JMP loc_AF47
 
@@ -9360,12 +9346,6 @@ C - - - - - 0x002F82 00:AF72: 60        RTS
 - - - - - - 0x002FB6 00:AFA6: BD 05 05  LDA ram_0505,X
 - - - - - - 0x002FB9 00:AFA9: 99 05 05  STA ram_0505,Y
 - - - - - - 0x002FBC 00:AFAC: 60        RTS
-
-
-; bzk мусор
-- - - - - - 0x002FBD 00:AFAD: 20 11 AF  JSR sub_AF11
-- - - - - - 0x002FC0 00:AFB0: 20 F2 AE  JSR sub_AEF2
-- - - - - - 0x002FC3 00:AFB3: 4C 26 AF  JMP loc_AF26
 
 
 
