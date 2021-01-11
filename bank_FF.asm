@@ -1050,7 +1050,8 @@ C - - - - - 0x0006FC 00:86EC: A9 20     LDA #< tbl_8720
 C - - - - - 0x0006FE 00:86EE: 85 32     STA ram_0032
 C - - - - - 0x000700 00:86F0: A9 87     LDA #> tbl_8720
 C - - - - - 0x000702 00:86F2: 85 33     STA ram_0033
-C - - - - - 0x000704 00:86F4: 4C 49 AC  JMP loc_AC49
+                                        LDA #$10
+                                        JMP loc_AC50
 
 
 
@@ -8838,12 +8839,6 @@ _off004_AC3F_0D:
 - D 1 - I - 0x002C56 00:AC46: 01        .byte $01   ; 
 - D 1 - I - 0x002C57 00:AC47: 01        .byte $01   ; 
 - D 1 - I - 0x002C58 00:AC48: 01        .byte $01   ; 
-
-
-
-loc_AC49:   ; bzk опт
-C D 1 - - - 0x002C59 00:AC49: A9 10     LDA #$10
-C - - - - - 0x002C5B 00:AC4B: 4C 50 AC  JMP loc_AC50
 
 
 
