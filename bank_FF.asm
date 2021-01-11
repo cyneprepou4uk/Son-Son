@@ -6432,8 +6432,16 @@ C - - - - - 0x0022E1 00:A2D1: 60        RTS
 
 sub_A2D2_draw_sprites:
 loc_A2D2_next_object:
+.scope
+ram_counter     = ram_002F      ; счетчик спрайтов текущего объекта
+ram_obj_data    = ram_0032      ; данные анимации объекта
+ram_obj_addr    = ram_0035      ; адрес с координатами и индексом объекта 0380+
+ram_spr_addr    = ram_0037      ; адрес 0200+
+ram_pal_data    = ram_0039      ; палитра
+ram_pos_data    = ram_003B      ; координаты X и Y
+
 C D 1 - - - 0x0022E2 00:A2D2: A0 01     LDY #$01
-C - - - - - 0x0022E4 00:A2D4: B1 35     LDA (ram_0035),Y
+C - - - - - 0x0022E4 00:A2D4: B1 35     LDA (ram_obj_addr),Y    ; номер анимации объекта
 C - - - - - 0x0022E6 00:A2D6: C9 FF     CMP #$FF
 C - - - - - 0x0022E8 00:A2D8: D0 01     BNE bra_A2DB_object_does_exist
 C - - - - - 0x0022EA 00:A2DA: 60        RTS
@@ -6447,108 +6455,109 @@ C - - - - - 0x0022F6 00:A2E6: 06 30     ASL ram_0030
 C - - - - - 0x0022F8 00:A2E8: 26 31     ROL ram_0031
 C - - - - - 0x0022FA 00:A2EA: 18        CLC
 C - - - - - 0x0022FB 00:A2EB: A5 30     LDA ram_0030
-C - - - - - 0x0022FD 00:A2ED: 69 CE     ADC #< tbl_A3CE
+C - - - - - 0x0022FD 00:A2ED: 69 CE     ADC #< tbl_A3CE_object_data
 C - - - - - 0x0022FF 00:A2EF: 85 30     STA ram_0030
 C - - - - - 0x002301 00:A2F1: A5 31     LDA ram_0031
-C - - - - - 0x002303 00:A2F3: 69 A3     ADC #> tbl_A3CE
+C - - - - - 0x002303 00:A2F3: 69 A3     ADC #> tbl_A3CE_object_data
 C - - - - - 0x002305 00:A2F5: 85 31     STA ram_0031
 C - - - - - 0x002307 00:A2F7: B1 30     LDA (ram_0030),Y
-C - - - - - 0x002309 00:A2F9: 85 32     STA ram_0032
+C - - - - - 0x002309 00:A2F9: 85 32     STA ram_obj_data
 C - - - - - 0x00230B 00:A2FB: C8        INY
 C - - - - - 0x00230C 00:A2FC: B1 30     LDA (ram_0030),Y
-C - - - - - 0x00230E 00:A2FE: 85 33     STA ram_0033
-C - - - - - 0x002310 00:A300: A1 32     LDA (ram_0032,X)
-C - - - - - 0x002312 00:A302: 85 2F     STA ram_002F
+C - - - - - 0x00230E 00:A2FE: 85 33     STA ram_obj_data + 1
+C - - - - - 0x002310 00:A300: A1 32     LDA (ram_obj_data,X)
+C - - - - - 0x002312 00:A302: 85 2F     STA ram_counter
 C - - - - - 0x002314 00:A304: 20 C6 A3  JSR sub_A3C6_increase_0032_index
-C - - - - - 0x002317 00:A307: A1 32     LDA (ram_0032,X)
+C - - - - - 0x002317 00:A307: A1 32     LDA (ram_obj_data,X)
 C - - - - - 0x002319 00:A309: 0A        ASL
-C - - - - - 0x00231A 00:A30A: 69 62     ADC #< tbl_AA62
+C - - - - - 0x00231A 00:A30A: 69 62     ADC #< tbl_AA62_position
 C - - - - - 0x00231C 00:A30C: 85 30     STA ram_0030
 C - - - - - 0x00231E 00:A30E: A9 00     LDA #$00
-C - - - - - 0x002320 00:A310: 69 AA     ADC #> tbl_AA62
+C - - - - - 0x002320 00:A310: 69 AA     ADC #> tbl_AA62_position
 C - - - - - 0x002322 00:A312: 85 31     STA ram_0031
 C - - - - - 0x002324 00:A314: A0 00     LDY #$00
 C - - - - - 0x002326 00:A316: B1 30     LDA (ram_0030),Y
-C - - - - - 0x002328 00:A318: 85 3B     STA ram_003B
+C - - - - - 0x002328 00:A318: 85 3B     STA ram_pos_data
 C - - - - - 0x00232A 00:A31A: C8        INY
 C - - - - - 0x00232B 00:A31B: B1 30     LDA (ram_0030),Y
-C - - - - - 0x00232D 00:A31D: 85 3C     STA ram_003C
+C - - - - - 0x00232D 00:A31D: 85 3C     STA ram_pos_data + 1
 C - - - - - 0x00232F 00:A31F: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x002332 00:A322: A0 02     LDY #$02
-C - - - - - 0x002334 00:A324: B1 35     LDA (ram_0035),Y
+C - - - - - 0x002334 00:A324: B1 35     LDA (ram_obj_addr),Y    ; палитра объекта
 C - - - - - 0x002336 00:A326: 0A        ASL
-C - - - - - 0x002337 00:A327: 69 A2     ADC #< tbl_ABA2
+C - - - - - 0x002337 00:A327: 69 A2     ADC #< tbl_ABA2_palette
 C - - - - - 0x002339 00:A329: 85 30     STA ram_0030
 C - - - - - 0x00233B 00:A32B: A9 00     LDA #$00
-C - - - - - 0x00233D 00:A32D: 69 AB     ADC #> tbl_ABA2
+C - - - - - 0x00233D 00:A32D: 69 AB     ADC #> tbl_ABA2_palette
 C - - - - - 0x00233F 00:A32F: 85 31     STA ram_0031
 C - - - - - 0x002341 00:A331: A0 00     LDY #$00
 C - - - - - 0x002343 00:A333: B1 30     LDA (ram_0030),Y
-C - - - - - 0x002345 00:A335: 85 39     STA ram_0039
+C - - - - - 0x002345 00:A335: 85 39     STA ram_pal_data
 C - - - - - 0x002347 00:A337: C8        INY
 C - - - - - 0x002348 00:A338: B1 30     LDA (ram_0030),Y
-C - - - - - 0x00234A 00:A33A: 85 3A     STA ram_003A
+C - - - - - 0x00234A 00:A33A: 85 3A     STA ram_pal_data + 1
 bra_A33C_loop:
 C - - - - - 0x00234C 00:A33C: A0 01     LDY #$01
-C - - - - - 0x00234E 00:A33E: A1 32     LDA (ram_0032,X)
+C - - - - - 0x00234E 00:A33E: A1 32     LDA (ram_obj_data,X)
 C - - - - - 0x002350 00:A340: C9 FF     CMP #$FF
-C - - - - - 0x002352 00:A342: F0 5B     BEQ bra_A39F
-C - - - - - 0x002354 00:A344: 91 37     STA (ram_0037),Y
+C - - - - - 0x002352 00:A342: F0 5B     BEQ bra_A39F_no_more_data
+C - - - - - 0x002354 00:A344: 91 37     STA (ram_spr_addr),Y    ; номер тайла
 C - - - - - 0x002356 00:A346: A0 03     LDY #$03
-C - - - - - 0x002358 00:A348: A1 3B     LDA (ram_003B,X)
+C - - - - - 0x002358 00:A348: A1 3B     LDA (ram_pos_data,X)
 C - - - - - 0x00235A 00:A34A: 18        CLC
-C - - - - - 0x00235B 00:A34B: 71 35     ADC (ram_0035),Y
-C - - - - - 0x00235D 00:A34D: 91 37     STA (ram_0037),Y
+C - - - - - 0x00235B 00:A34B: 71 35     ADC (ram_obj_addr),Y
+C - - - - - 0x00235D 00:A34D: 91 37     STA (ram_spr_addr),Y    ; координата X спрайта
 C - - - - - 0x00235F 00:A34F: 20 BF A3  JSR sub_A3BF_increase_003B_index
-C - - - - - 0x002362 00:A352: A1 3B     LDA (ram_003B,X)
+C - - - - - 0x002362 00:A352: A1 3B     LDA (ram_pos_data,X)
 C - - - - - 0x002364 00:A354: A0 00     LDY #$00
 C - - - - - 0x002366 00:A356: 18        CLC
-C - - - - - 0x002367 00:A357: 71 35     ADC (ram_0035),Y
-C - - - - - 0x002369 00:A359: 91 37     STA (ram_0037),Y
+C - - - - - 0x002367 00:A357: 71 35     ADC (ram_obj_addr),Y
+C - - - - - 0x002369 00:A359: 91 37     STA (ram_spr_addr),Y    ; координата Y спрайта
 C - - - - - 0x00236B 00:A35B: 20 BF A3  JSR sub_A3BF_increase_003B_index
-C - - - - - 0x00236E 00:A35E: A1 39     LDA (ram_0039,X)
+C - - - - - 0x00236E 00:A35E: A1 39     LDA (ram_pal_data,X)
 C - - - - - 0x002370 00:A360: A0 02     LDY #$02
-C - - - - - 0x002372 00:A362: 91 37     STA (ram_0037),Y
+C - - - - - 0x002372 00:A362: 91 37     STA (ram_spr_addr),Y    ; палитра спрайта
 C - - - - - 0x002374 00:A364: 20 C6 A3  JSR sub_A3C6_increase_0032_index
-C - - - - - 0x002377 00:A367: A1 32     LDA (ram_0032,X)
+C - - - - - 0x002377 00:A367: A1 32     LDA (ram_obj_data,X)
 C - - - - - 0x002379 00:A369: 18        CLC
 C - - - - - 0x00237A 00:A36A: 6A        ROR
 C - - - - - 0x00237B 00:A36B: 6A        ROR
 C - - - - - 0x00237C 00:A36C: 6A        ROR
-C - - - - - 0x00237D 00:A36D: 11 37     ORA (ram_0037),Y
+C - - - - - 0x00237D 00:A36D: 11 37     ORA (ram_spr_addr),Y    ; палитра спрайта
 C - - - - - 0x00237F 00:A36F: 29 E3     AND #$E3
-C - - - - - 0x002381 00:A371: 91 37     STA (ram_0037),Y
+C - - - - - 0x002381 00:A371: 91 37     STA (ram_spr_addr),Y    ; палитра спрайта
 C - - - - - 0x002383 00:A373: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x002386 00:A376: 20 B8 A3  JSR sub_A3B8_increase_0039_index
 C - - - - - 0x002389 00:A379: 18        CLC
-C - - - - - 0x00238A 00:A37A: A5 37     LDA ram_0037
-C - - - - - 0x00238C 00:A37C: 69 04     ADC #$04    ; следующий адрес спрайта
-C - - - - - 0x00238E 00:A37E: 85 37     STA ram_0037
-C - - - - - 0x002390 00:A380: A5 38     LDA ram_0038
+C - - - - - 0x00238A 00:A37A: A5 37     LDA ram_spr_addr
+C - - - - - 0x00238C 00:A37C: 69 04     ADC #$04        ; следующий адрес спрайта
+C - - - - - 0x00238E 00:A37E: 85 37     STA ram_spr_addr
+C - - - - - 0x002390 00:A380: A5 38     LDA ram_spr_addr + 1
 C - - - - - 0x002392 00:A382: 69 00     ADC #$00
-C - - - - - 0x002394 00:A384: 85 38     STA ram_0038
+C - - - - - 0x002394 00:A384: 85 38     STA ram_spr_addr + 1
 C - - - - - 0x002396 00:A386: C9 03     CMP #$03
-C - - - - - 0x002398 00:A388: 90 01     BCC bra_A38B    ; место в памяти спрайтов еще есть
+C - - - - - 0x002398 00:A388: 90 01     BCC bra_A38B_not_overflow    ; место в памяти спрайтов еще есть
 C - - - - - 0x00239A 00:A38A: 60        RTS
-bra_A38B:
-loc_A38B_loop:
-C D 1 - - - 0x00239B 00:A38B: C6 2F     DEC ram_002F
+bra_A38B_not_overflow:
+loc_A38B_next_sprite:
+C D 1 - - - 0x00239B 00:A38B: C6 2F     DEC ram_counter
 C - - - - - 0x00239D 00:A38D: D0 AD     BNE bra_A33C_loop
 C - - - - - 0x00239F 00:A38F: 18        CLC
-C - - - - - 0x0023A0 00:A390: A5 35     LDA ram_0035    ; следующий спрайт, bzk предположительно не нужно изменять/проверять 0036
+C - - - - - 0x0023A0 00:A390: A5 35     LDA ram_obj_addr    ; следующий объект, bzk предположительно не нужно изменять/проверять 0036
 C - - - - - 0x0023A2 00:A392: 69 04     ADC #$04
-C - - - - - 0x0023A4 00:A394: 85 35     STA ram_0035
-C - - - - - 0x0023A6 00:A396: A5 36     LDA ram_0036
+C - - - - - 0x0023A4 00:A394: 85 35     STA ram_obj_addr
+C - - - - - 0x0023A6 00:A396: A5 36     LDA ram_obj_addr + 1
 C - - - - - 0x0023A8 00:A398: 69 00     ADC #$00
-C - - - - - 0x0023AA 00:A39A: 85 36     STA ram_0036
+C - - - - - 0x0023AA 00:A39A: 85 36     STA ram_obj_addr + 1
 C - - - - - 0x0023AC 00:A39C: 4C D2 A2  JMP loc_A2D2_next_object
-bra_A39F:
+bra_A39F_no_more_data:
 C - - - - - 0x0023AF 00:A39F: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x0023B2 00:A3A2: 20 C6 A3  JSR sub_A3C6_increase_0032_index
 C - - - - - 0x0023B5 00:A3A5: 20 B8 A3  JSR sub_A3B8_increase_0039_index
 C - - - - - 0x0023B8 00:A3A8: 20 BF A3  JSR sub_A3BF_increase_003B_index
 C - - - - - 0x0023BB 00:A3AB: 20 BF A3  JSR sub_A3BF_increase_003B_index
-C - - - - - 0x0023BE 00:A3AE: 4C 8B A3  JMP loc_A38B_loop
+C - - - - - 0x0023BE 00:A3AE: 4C 8B A3  JMP loc_A38B_next_sprite
+.endscope
 
 
 
@@ -6579,7 +6588,7 @@ C - - - - - 0x0023DD 00:A3CD: 60        RTS
 
 
 
-tbl_A3CE:
+tbl_A3CE_object_data:
 - D 1 - I - 0x0023DE 00:A3CE: 36 A5     .word _off001_A536_00
 - D 1 - I - 0x0023E0 00:A3D0: 3C A5     .word _off001_A53C_01
 - D 1 - I - 0x0023E2 00:A3D2: 42 A5     .word _off001_A542_02
@@ -8270,7 +8279,7 @@ _off001_AA5C_B3:
 
 
 
-tbl_AA62:
+tbl_AA62_position:
 - D 1 - I - 0x002A72 00:AA62: 84 AA     .word _off002_AA84_00
 - D 1 - I - 0x002A74 00:AA64: 86 AA     .word _off002_AA86_01
 - D 1 - I - 0x002A76 00:AA66: 8A AA     .word _off002_AA8A_02
@@ -8645,7 +8654,7 @@ _off002_AB92_10:
 
 
 
-tbl_ABA2:
+tbl_ABA2_palette:
 - D 1 - I - 0x002BB2 00:ABA2: E2 AB     .word _off004_ABE2_00
 - D 1 - I - 0x002BB4 00:ABA4: EA AB     .word _off004_ABEA_01
 - D 1 - I - 0x002BB6 00:ABA6: EE AB     .word _off004_ABEE_02
