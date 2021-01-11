@@ -17370,15 +17370,6 @@ tbl_E0D5:
 - D 3 - I - 0x0060E9 01:E0D9: FF        .byte $FF   ; 
 
 
-; bzk мусор
-- - - - - - 0x0060EA 01:E0DA: FF        .byte $FF   ; 
-- - - - - - 0x0060EB 01:E0DB: FF        .byte $FF   ; 
-- - - - - - 0x0060EC 01:E0DC: FF        .byte $FF   ; 
-- - - - - - 0x0060ED 01:E0DD: FF        .byte $FF   ; 
-- - - - - - 0x0060EE 01:E0DE: FF        .byte $FF   ; 
-- - - - - - 0x0060EF 01:E0DF: FF        .byte $FF   ; 
-
-
 
 loc_E0E0:
 ofs_E0E0_03:
