@@ -6591,10 +6591,9 @@ C - - - - - 0x0023D5 00:A3C5: 60        RTS
 
 sub_A3C6_increase_0032_index:
 C - - - - - 0x0023D6 00:A3C6: E6 32     INC ram_0032
-C - - - - - 0x0023D8 00:A3C8: F0 01     BEQ bra_A3CB_overflow
-C - - - - - 0x0023DA 00:A3CA: 60        RTS     ; bzk опт
-bra_A3CB_overflow:
+C - - - - - 0x0023D8 00:A3C8: F0 01     BNE bra_A3CD_RTS
 C - - - - - 0x0023DB 00:A3CB: E6 33     INC ram_0033
+bra_A3CD_RTS:
 C - - - - - 0x0023DD 00:A3CD: 60        RTS
 
 
