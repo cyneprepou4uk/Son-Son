@@ -1492,8 +1492,9 @@ C - - - - - 0x0008BC 00:88AC: 20 63 82  JSR sub_8263
 
 
 sub_88AF_clear_all_sprites:
+                                        LDY #$00
+sub_88B0_clear_unused_sprites:
 C - - - - - 0x0008BF 00:88AF: A9 FF     LDA #$F8
-C - - - - - 0x0008C1 00:88B1: A0 00     LDY #$00
 bra_88B3_loop:
 C - - - - - 0x0008C3 00:88B3: 99 00 02  STA ram_0200,Y
                                         INY
@@ -6401,19 +6402,11 @@ C - - - - - 0x00229A 00:A28A: 85 37     STA ram_0037
 C - - - - - 0x00229C 00:A28C: A9 02     LDA #> ram_0200
 C - - - - - 0x00229E 00:A28E: 85 38     STA ram_0038
 C - - - - - 0x0022A0 00:A290: 20 D2 A2  JSR sub_A2D2
-C - - - - - 0x0022A3 00:A293: A0 00     LDY #$00
-C - - - - - 0x0022A5 00:A295: A5 37     LDA ram_0037
-C - - - - - 0x0022A7 00:A297: 85 32     STA ram_0032
-C - - - - - 0x0022A9 00:A299: A5 38     LDA ram_0038
-C - - - - - 0x0022AB 00:A29B: 85 33     STA ram_0033
-loc_A29D:
-C D 1 - - - 0x0022AD 00:A29D: A5 33     LDA ram_0033
+C D 1 - - - 0x0022AD 00:A29D: A5 33     LDA ram_0038
 C - - - - - 0x0022AF 00:A29F: C9 03     CMP #$03
 C - - - - - 0x0022B1 00:A2A1: B0 0A     BCS bra_A2AD
-C - - - - - 0x0022B3 00:A2A3: A9 FF     LDA #$FF
-C - - - - - 0x0022B5 00:A2A5: 91 32     STA (ram_0032),Y
-C - - - - - 0x0022B7 00:A2A7: 20 C6 A3  JSR sub_A3C6_increase_0032_index
-C - - - - - 0x0022BA 00:A2AA: 4C 9D A2  JMP loc_A29D
+                                        LDY ram_0037
+                                        JSR sub_88B0_clear_unused_sprites
 bra_A2AD:
 C - - - - - 0x0022BD 00:A2AD: 20 B4 82  JSR sub_82B4
 C - - - - - 0x0022C0 00:A2B0: 4C 36 A2  JMP loc_A236
