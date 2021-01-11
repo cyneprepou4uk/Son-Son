@@ -9259,13 +9259,6 @@ C - - - - - 0x002F16 00:AF06: 60        RTS
 
 
 ; bzk мусор
-- - - - - - 0x002F17 00:AF07: B9 6E 05  LDA ram_056E,Y
-- - - - - - 0x002F1A 00:AF0A: 85 8A     STA ram_008A
-- - - - - - 0x002F1C 00:AF0C: B9 91 05  LDA ram_0591,Y
-- - - - - - 0x002F1F 00:AF0F: 85 8B     STA ram_008B
-
-
-; bzk мусор
 sub_AF11:
 - - - - - - 0x002F21 00:AF11: B9 4B 05  LDA ram_054B,Y
 - - - - - - 0x002F24 00:AF14: 85 83     STA ram_0083
