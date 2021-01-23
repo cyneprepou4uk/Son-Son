@@ -1,4 +1,4 @@
-# Street Fighter 3
+# Son Son
 
 Son Son [NES] disassembly.
 
